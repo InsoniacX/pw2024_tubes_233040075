@@ -2,9 +2,12 @@
     session_start();
     require 'src/functions/queryfunction.php';
 
-    $userData = queryUserData("SELECT * FROM users");
+    $userData = queryUserData("SELECT * FROM admin");
+
+    $animeData = queryAnimeData("SELECT * FROM anime");
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,23 +60,23 @@
         <div class="container-fluid d-flex px-0" style="padding-top: 70px;">
             <div class="container-fluid m-0 p-0">
                 <div class="carousel-outside d-flex justify-content-center">
+                    <?php foreach ($animeData as $data): ?>
                     <!-- Carousel Starts -->
                     <div id="carouselExampleControls" class="carousel slide w-75" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="content">
-                                    <img src="src/public/img/hellsing-preview.png" class="position-relative w-100" alt="...">
+                                    <img src="src/public/img/<?= $data['preview_img'];?>" class="position-relative w-100" alt="...">
                                     <div class="info mt-3 p-3 bg-dark text-white rounded">
                                         <div class="d-flex">
                                             <div class="thumbnail">
-                                                <img src="src/public/img/hellsing-thumbnail.jpg" class="img-fluid rounded" alt="Moana 2 Thumbnail" style="max-width: 200px;">
+                                                <img src="src/public/img/<?= $data['thumbnail'];?>" class="img-fluid rounded" alt="Moana 2 Thumbnail" style="max-width: 200px;">
                                             </div>
                                             <div class="align-content-center m-3">
-                                                <h2>Hellsing Ultimate</h2>
-                                                <p>Duration: 40min</p>
-                                                <p>Keberadaan vampir itu nyata. Hellsing, sebuah organisasi rahasia yang disponsori oleh pemerintah Inggris untuk menyembunyikan fakta menakutkan itu dan melindungi penduduk yang tak sadar akan hal itu. Alucard adalah vampir yang sangat kuat dan telah dikendalikan oleh Hellsing selama bertahun-tahun. Entah bagaimana perasaannya menjadi pelayan keluarga Hellsing, tapi yang jelas dia menikmati pekerjaannya sebagai pembasmi vampir.
-                                                <br>
-                                                Akhir-akhir ini aktivitas vampir meningkat. Sebuah kelompok yang dianggap telah mati, berencana untuk menjebak Inggris, dan mungkin seluruh dunia ke dalam perang.</p>
+                                                <h2><?= $data['judul']; ?></h2>
+
+                                                <p>Duration: <?= $data['durasi'];?>min</p>
+                                                <p><?= $data['desciption'];?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -122,10 +125,12 @@
                         </button>
                     </div>
                     <!-- Carousel Ends -->
+                    <?php endforeach; ?>
+
                 </div>
                 <!--  Landing Page Content -->
                 <div class="container">
-                    <h1 class="text-center" style="color: white;">What's New?</h1>
+                    <h1 class="text-center" style="color: white;">New Releases</h1>
                     <div class="container-fluid">
 
                     </div>
@@ -162,6 +167,7 @@
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
+                
 
             </div>
         </div>
