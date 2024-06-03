@@ -39,7 +39,7 @@ if ( isset( $_POST["register"] ) ){
     <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="container w-50 py-5 px-2 d-flex justify-content-center align-items-center" style="background-color: rgba(255, 255, 255, 0.2); height: 70vh; border-radius: 20px;">
             <form action="" method="post" class="w-50">
-                <div class="d-flex justify-content-center mb-5">
+                <div class="d-flex justify-content-center mb-3">
                     <h1 class="mb-3">Registeration</h1>
                 </div>
                 <label for="username" class="fw-bold fs-5">Username :</label>

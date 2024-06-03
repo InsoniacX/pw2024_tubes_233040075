@@ -10,12 +10,22 @@ function register($userData) {
     $password = mysqli_real_escape_string($conn, $userData["password"]);
     $confirmPassword = mysqli_real_escape_string($conn, $userData["confirm_password"]);
 
+
+    if (strlen($password) < 8) {
+        echo "  <script>
+                    alert('Password Terlalu Pendek! Gunakan Minimal 8 Karakter');
+                </script>";
+        return false;
+    }
+    
+
     if ( $password !== $confirmPassword ) {
-        echo "<script>
-                alert('Konfirmasi password tidak sesuai!');
-            </script>";
+        echo "  <script>
+                    alert('Konfirmasi password tidak sesuai!');
+                </script>";
             return false;
     }
+
     
     $password = password_hash($password, PASSWORD_DEFAULT);
 

@@ -24,28 +24,32 @@
 <body>
 
     <!-- Navbar Section Start -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-black position-fixed" style="z-index: 999; width: 100%;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-black position-fixed" style="z-index: 999; width: 100%; height: 70px;">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#" style="color: white; font-size: 32px;">AniMates</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" style="color: white;" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
-                <span class="navbar-toggler-icon" style="color: white;"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" style="color: white; font-size: 18px;">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: white; font-size: 18px;">List Anime</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: white; font-size: 18px;">Kategori Anime</a>
-                </li>
-            </ul>
-            <form class="d-flex">
+            <div class="navigation d-flex">
+                <a class="navbar-brand text-white" href="#">Bootstrap</a>
+                <ul class="nav nav-underline">
+                    <li class="nav-item">
+                        <a class="nav-link text-white active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Kategori</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">#</a>
+                    </li>
+                </ul>
+            </div>
+            <form class="d-flex w-50" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
+            <div class="accountBtn">
+                <a href="login.php" class="btn btn-outline-light">Login</a>
+                <a href="login.php" class="btn btn-outline-light">Sign In</a>
             </div>
         </div>
     </nav>
@@ -74,8 +78,7 @@
                                             </div>
                                             <div class="align-content-center m-3">
                                                 <h2><?= $data['judul']; ?></h2>
-
-                                                <p>Duration: <?= $data['durasi'];?>min</p>
+                                                <p>Duration: <?= $data['duration'];?>min</p>
                                                 <p><?= $data['desciption'];?></p>
                                             </div>
                                         </div>

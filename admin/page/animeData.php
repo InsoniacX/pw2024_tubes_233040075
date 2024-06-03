@@ -1,12 +1,12 @@
 <?php 
 
-require '../function/queryFunction.php';
+require '../php/CRUDFunction.php';
 
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-$animeData = queryAnimeData("SELECT * FROM anime");
+$queryData = queryData("SELECT * FROM anime");
 
 ?>
 
@@ -40,7 +40,7 @@ $animeData = queryAnimeData("SELECT * FROM anime");
                     <th>Thumbnail</th>
                     <th>Release Data</th>
                 </tr>
-                <?php foreach ($animeData as $data) :?>
+                <?php foreach ($queryData as $data) :?>
                 <tr>
                     <td><?= $data['id']; ?></td>
                     <td><?= $data['judul']; ?></td>

@@ -1,11 +1,11 @@
 <?php
-require '../function/queryFunction.php';
+require '../php/CRUDFunction.php';
 
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-$adminData = queryAdminData("SELECT * FROM admin");
+$queryData = queryData("SELECT * FROM admin");
 
 ?>
 
@@ -23,7 +23,7 @@ $adminData = queryAdminData("SELECT * FROM admin");
 </head>
 <body>
     <div class="container my-4 py-3">
-        <h1>Hello <!-- <?= $adminData['username']; ?> -->, Have a Nice Day 😊</h1>
+        <h1>Hello <!-- <?= $queryData['username']; ?> -->, Have a Nice Day 😊</h1>
 
     </div>
 
